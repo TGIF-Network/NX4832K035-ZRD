@@ -35,10 +35,12 @@ m5=$(sed -nr "/^\[P25]/ { :1 /^Enable[ ]*=/ { s/.*=[ ]*//; p; q;}; n; b 1;}" /et
 #m6=$(sudo cat /etc/mmdvmhost | grep "\[POCSAG\]" -A 1 | grep "Enable=" | cut -b 8-9)
 m6=$(sed -nr "/^\[POCSAG]/ { :1 /^Enable[ ]*=/ { s/.*=[ ]*//; p; q;}; n; b 1;}" /etc/mmdvmhost)
 
-mt="$m1 + ($m2*2) + ($m3*4) + ($m4*8) + ($m5*16) + ($m6*32)"
-mt1="$m1|$m2|$m3|$m4|$m5|$m6"
-echo "$mt"
-#echo "$mt1"
+m7=$(sed -nr "/^\[M17]/ { :1 /^Enable[ ]*=/ { s/.*=[ ]*//; p; q;}; n; b 1;}" /etc/mmdvmhost)
+
+#mt="$m1 + ($m2*2) + ($m3*4) + ($m4*8) + ($m5*16) + ($m6*32)"
+mt1="$m1|$m2|$m3|$m4|$m5|$m6|$m7"
+#echo "$mt"
+echo "$mt1"
 
 ##m7=$(sed -nr "/^\[DMR]/ { :1 /^Id[ ]*=/ { s/.*=[ ]*//; p; q;}; n; b 1;}" /etc/mmdvmhost)
 
