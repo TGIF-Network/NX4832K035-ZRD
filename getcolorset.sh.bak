@@ -1,0 +1,26 @@
+#!/bin/bash
+############################################################
+#  Get Color Info from /etc/Colors.ini 		           #
+#                                                          #
+#                                                          #
+#  VE3RD                                      2024-04-17   #
+############################################################
+set -o errexit
+set -o pipefail
+SetNum="$1"
+
+echo "$2"
+
+echo "ColorSet$SetNum"
+
+SetNum=$(sed -nr "/^\['"$2"']/ { :1 /^Set[ ]*=/ { s/.*=[ ]*//; p; q;}; n; b 1;}" /etc/Colors.ini)
+echo "SetNum=$1"
+echo "Mode=$2"
+m0=$(sed -n '/^[ \t]*\[ColorSet'"$SetNum"'\]/,/\[/s/^[ \t]*Split[ \t]*=[ \t]*//p' /etc/Colors.ini)
+
+m1=$(sed -n '/^[ \t]*\[ColorSet'"$SetNum"'\]/,/\[/s/^[ \t]*UpperBack[ \t]*=[ \t]*//p' /etc/Colors.ini)
+m2=$(sed -n '/^[ \t]*\[ColorSet'"$SetNum"'\]/,/\[/s/^[ \t]*UpperText[ \t]*=[ \t]*//p' /etc/Colors.ini)
+m3=$(sed -n '/^[ \t]*\[ColorSet'"$SetNum"'\]/,/\[/s/^[ \t]*LowerBack[ \t]*=[ \t]*//p' /etc/Colors.ini)
+m4=$(sed -n '/^[ \t]*\[ColorSet'"$SetNum"'\]/,/\[/s/^[ \t]*LowerText[ \t]*=[ \t]*//p' /etc/Colors.ini)
+mt="$SetNum|$m0|$m1|$m2|$m3|$m4"
+echo "$mt"
