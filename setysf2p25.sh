@@ -20,7 +20,7 @@ if [ -z "$4" ]; then
 else
 	# If Enabled
         if [ "$1" = 1 ]; then
-		sudo /usr/local/sbin/mmdvmhost.service stop  > /dev/null
+#		sudo /usr/local/sbin/mmdvmhost.service stop  > /dev/null
 		sudo /usr/local/etc/Nextion_Support/clearallmodes.sh
 
 		p1="$1" # Enable
@@ -44,7 +44,7 @@ else
          	sudo sed -i '/^\[/h;G;/P25 Network/s/\(StartupDstId=\).*/\1'"$p2"'/m;P;d' /etc/ysf2p25
         	sudo sed -i '/^\[/h;G;/P25 Network/s/\(^Id=\).*/\1'"$m1"'/m;P;d' /etc/ysf2p25
 
-		sudo /usr/local/sbin/mmdvmhost.service start  > /dev/null
+		sudo /usr/local/sbin/mmdvmhost.service restart  > /dev/null
 
        		sudo /usr/local/sbin/ysfgateway.service restart > /dev/null
            	sudo /usr/local/sbin/ysf2p25.service restart  > /dev/null

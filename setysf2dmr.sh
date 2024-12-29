@@ -71,7 +71,7 @@ else
 fi
 
 sudo mount -o remount,rw /
-sudo /usr/local/sbin/mmdvmhost.service stop 
+#sudo /usr/local/sbin/mmdvmhost.service stop 
 
 sudo /usr/local/etc/Nextion_Support/clearallmodes.sh
 

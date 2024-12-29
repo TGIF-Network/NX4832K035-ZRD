@@ -31,7 +31,7 @@ m2=$(sed -nr "/^\[General\]/ { :1 /^Id[ ]*=/ { s/.*=[ ]*//; p; q;}; n; b 1;}" /e
 	echo "$addr $port"
 
 	sudo mount -o remount,rw /
-	sudo /usr/local/sbin/mmdvmhost.service stop  > /dev/null
+#	sudo /usr/local/sbin/mmdvmhost.service stop  > /dev/null
 	sudo /usr/local/etc/Nextion_Support/clearallmodes.sh
 
 
@@ -64,7 +64,7 @@ m2=$(sed -nr "/^\[General\]/ { :1 /^Id[ ]*=/ { s/.*=[ ]*//; p; q;}; n; b 1;}" /e
         fi
 
 fi;
-sudo /usr/local/sbin/mmdvmhost.service start  > /dev/null
+sudo /usr/local/sbin/mmdvmhost.service restart  > /dev/null
 sudo mount -o remount,ro /
 
 

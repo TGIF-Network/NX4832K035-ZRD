@@ -12,7 +12,7 @@ sudo mount -o remount,rw /
 m1=$(sed -nr "/^\[General\]/ { :1 /^Id[ ]*=/ { s/.*=[ ]*//; p; q;}; n; b 1;}" /etc/mmdvmhost)
 m2=$(sed -nr "/^\[DMR\]/ { :1 /^WhiteList[ ]*=/ { s/.*=[ ]*//; p; q;}; n; b 1;}" /etc/mmdvmhost)
 
-sudo /usr/local/sbin/mmdvmhost.service stop  > /dev/null
+#sudo /usr/local/sbin/mmdvmhost.service stop  > /dev/null
 sudo /usr/local/etc/Nextion_Support/clearallmodes.sh
 p1="$1" ##dmr server address or 127.0.0.1 forDMRGateway
 p2="$2" ## Port
@@ -49,6 +49,6 @@ sudo mount -o remount,rw /
 	fi
 
 
-sudo /usr/local/sbin/mmdvmhost.service start  > /dev/null
+sudo /usr/local/sbin/mmdvmhost.service restart  > /dev/null
 
 sudo mount -o remount,ro /

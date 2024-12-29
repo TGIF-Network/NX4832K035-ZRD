@@ -13,7 +13,7 @@ if [ -z "$10" ]; then
         exit
  else
 sudo mount -o remount,rw /
-sudo /usr/local/sbin/mmdvmhost.service stop  > /dev/null
+#sudo /usr/local/sbin/mmdvmhost.service stop  > /dev/null
 
 
 p10=${10}
@@ -33,5 +33,5 @@ p10=${10}
 	sudo sed -i '/^\[/h;G;/NXDN Network/s/\(ModeHang=\).*/\1'"$p10"'/m;P;d' /etc/mmdvmhost
 echo "$p10"
 fi;
-sudo /usr/local/sbin/mmdvmhost.service start  > /dev/null
+sudo /usr/local/sbin/mmdvmhost.service restart  > /dev/null
 sudo mount -o remount,rw /

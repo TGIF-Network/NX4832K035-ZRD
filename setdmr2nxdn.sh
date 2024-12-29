@@ -19,7 +19,7 @@ else
 	wlist="$m1""03"
         sudo sed -i '/^\[/h;G;/DMR/s/\(WhiteList=\).*/\1'"$wlist"'/m;P;d' /etc/dmr2nxdn
 
-	sudo /usr/local/sbin/mmdvmhost.service stop  > /dev/null
+#	sudo /usr/local/sbin/mmdvmhost.service stop  > /dev/null
 	sudo mount -o remount,rw /
 	#1 Enable
 	#2 Target
@@ -103,7 +103,7 @@ else
 
 
 		echo "Setting DMRgateway OFF DMR2NXDN ON"
-sudo /usr/local/sbin/mmdvmhost.service start  > /dev/null
+sudo /usr/local/sbin/mmdvmhost.service restart  > /dev/null
 	fi
 	
 # If Disabled
@@ -117,7 +117,7 @@ sudo /usr/local/sbin/mmdvmhost.service start  > /dev/null
         		sudo sed -i '/^\[/h;G;/DMR Network/s/\(^Address=\).*/\1tgif.network/m;P;d' /etc/mmdvmhost
         		sudo sed -i '/^\[/h;G;/DMR Network/s/\(^Password=\).*/\1'"passw0rd"'/m;P;d' /etc/mmdvmhost
 		echo "Setting Master DMR to TGIF"
-sudo /usr/local/sbin/mmdvmhost.service start  > /dev/null
+sudo /usr/local/sbin/mmdvmhost.service restart  > /dev/null
   
 	fi
 	if [ "$1" = 1 ] &&  [ "$2" = 0 ]; then
@@ -129,7 +129,7 @@ sudo /usr/local/sbin/mmdvmhost.service start  > /dev/null
         		sudo sed -i '/^\[/h;G;/DMR Network/s/\(^Address=\).*/\1'"127.0.0.1"'/m;P;d' /etc/mmdvmhost
         		sudo sed -i '/^\[/h;G;/DMR Network/s/\(^Password=\).*/\1'"passw0rd"'/m;P;d' /etc/mmdvmhost
   		echo "Setting DMRgateway ON DMR2YSF OFF"
-sudo /usr/local/sbin/mmdvmhost.service start  > /dev/null
+sudo /usr/local/sbin/mmdvmhost.service restart  > /dev/null
 
 	fi
 
