@@ -1,6 +1,6 @@
 #!/bin/bash
 #################################################
-#  Get Last Heard Liost from MMDVMHost Log	#
+#  Get Last Heard Items from MMDVMHost Log	#
 #						#
 #						#
 #  VE3RD 			2020-05-03	#
@@ -26,18 +26,19 @@ echo "$list1"
 tg=$(echo "$list1" | cut -d " " -f17)
 dur=$(echo "$list1" | cut -d " " -f18)
 pl=$(echo "$list1" | cut -d " " -f20)
+call=$(echo "$list1" | cut -d " " -f14)
 
 
 list1=$(echo "${list1:3:19}")
 # date -d "${a:0:-1} UTC"
 
 tm1=$(date -d "${list1:0:-1} UTC")
-echo "$tm1"
+#echo "$tm1"
 
 tm3=$(echo "$tm1" | cut -d " " -f4)
-echo "$tm1"
+#echo "$tm1"
 tm2=$(echo "${tm3:0:5}")
-echo "$tg|$dur|$pl|$tm2"
+echo "$tg|$dur|$pl|$tm2|$call"
 
 #lt=$(date -d "$tm UTC")
 
