@@ -22,7 +22,7 @@ set -o pipefail
 #fi
 f1=$(ls -tr /var/log/pi-star/MMDVM* | tail -1)
 list1=$(sudo sed -n '/received network end of voice transmission from/p' $f1 | sed 's/,//g' | tail -1)
-echo "$list1"
+#echo "$list1"
 tg=$(echo "$list1" | cut -d " " -f17)
 dur=$(echo "$list1" | cut -d " " -f18)
 pl=$(echo "$list1" | cut -d " " -f20)
