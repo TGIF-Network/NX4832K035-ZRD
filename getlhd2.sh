@@ -30,16 +30,16 @@ call=$(echo "$list1" | cut -d " " -f14)
 
 
 list1=$(echo "${list1:3:19}")
-# date -d "${a:0:-1} UTC"
+#echo "$list1"
 
-tm1=$(date -d "${list1:0:-1} UTC")
+
+tm1=$(date -d "${list1:0:-1} UTC" '+%Y-%m-%d %T.%3N' | cut -d " " -f2)
 #echo "$tm1"
+
+#date '+%Y-%m-%d %T.%3N' | cut -d " " -f2
 
 tm3=$(echo "$tm1" | cut -d " " -f4)
 #echo "$tm1"
 tm2=$(echo "${tm3:0:5}")
 echo "$tg|$dur|$pl|$tm2|$call"
 
-#lt=$(date -d "$tm UTC")
-
-#convert
