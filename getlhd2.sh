@@ -17,6 +17,7 @@ pl=$(echo "$list1" | cut -d " " -f20)
 call=$(echo "$list1" | cut -d " " -f14)
 
 list1=$(echo "${list1:3:19}")
+#echo "$list1"
 
 tm1=$(date -d "${list1:0:-1} UTC" '+%R')
 echo "$tg|$dur|$pl|$tm1|$call"
