@@ -1,0 +1,1 @@
+ sed -nr  '/^[ \t]*\[DMR\]/,/\[/s/^[ \^Set[ \t]*=[ \t]*//p' /etc/Colors.ini
